@@ -22,27 +22,28 @@ const Carrousel = ({ lista }) => {
     }, [])
 
     const extremePointsControl = (index) => {
-        setDisabledNext(index === lista.length - 1)
+        console.log(`index extremePointsControl`, index)
+        setDisabledNext(Math.min(index + 2, lista.length - 1)  === lista.length - 1)
         setDisabledPrevious(index === 0)
     }
 
-    const handleVieweableItemsChanged = useCallback(({ changed }) => {
-        console.log("changed[0].index", changed[0].index);
-        setPositionDef(changed[0].index);
-        AsyncStorage.setItem('storedPosition', `${changed[0].index}`)
-        extremePointsControl(changed[0].index)
+    const handleVieweableItemsChanged = useCallback(({viewableItems}) => {
+        console.log(`viewableItems`, viewableItems)
+        setPositionDef(viewableItems[0].index);
+        AsyncStorage.setItem('storedPosition', `${viewableItems[0].index}`)
+        extremePointsControl(viewableItems[0].index)
     }, []);
 
-    const viewabilityConfig = { viewAreaCoveragePercentThreshold: 70 }
+    const viewabilityConfig = { viewAreaCoveragePercentThreshold: 100 }
 
     const nextItem = () => {
-        let newPosition = positionDef + 1
+        let newPosition = Math.min(positionDef + 2,lista.length - 1)
         setPositionDef(newPosition)
         flatListRef.scrollToIndex({ animated: true, index: newPosition });
     }
 
     const previousItem = () => {
-        let newPosition = positionDef - 1
+        let newPosition = Math.max(positionDef - 2, 0)
         setPositionDef(newPosition)
         flatListRef.scrollToIndex({ animated: true, index: newPosition });
     }
