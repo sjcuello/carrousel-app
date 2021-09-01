@@ -3,5 +3,6 @@ import styled from 'styled-components';
 
 export const Tittle = styled(Text)({
     color: 'red',
-    fontSize: 19
+    fontSize: 39,
+    marginTop: '10%'
 });
