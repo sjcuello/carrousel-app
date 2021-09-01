@@ -1,7 +1,7 @@
 import { Text } from 'react-native';
 import styled from 'styled-components';
 
-export const Tittle = styled(Text)({
+export const Title = styled(Text)({
     color: 'red',
     fontSize: 39,
     marginTop: '10%'

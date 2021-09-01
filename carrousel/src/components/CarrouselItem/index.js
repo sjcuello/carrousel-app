@@ -2,7 +2,9 @@
 import React from 'react';
 import { Card, ImageItem, CardDetail, Title } from './styles'
 
-const CarrouselItem = ({ title, image }) => {
+const CarrouselItem = ({ item }) => {
+
+    const {title, image} = item
     console.log('entra item')
 
     return (

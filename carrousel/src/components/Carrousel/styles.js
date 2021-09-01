@@ -1,17 +1,17 @@
 
 
 
-import { View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import styled from 'styled-components';
 
 export const Wrapper = styled(View)({
-    paddingLeft: 30,
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'column'
 });
 
-export const Conteiner = styled(View)({
+export const Conteiner = styled(FlatList)({
     fontSize: 0,
     margin: 70,
-    paddingBottom: 10
+    paddingBottom: 10,
+    overflow: 'hidden'
 });

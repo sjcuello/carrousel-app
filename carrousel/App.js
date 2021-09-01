@@ -8,22 +8,22 @@ import CarrouselItem from './src/components/CarrouselItem';
 export default function App() {
   const lista = [
     {
-      "id": 2,
+      "id": "2",
       "title": "In the Dark",
       "image": "http://dummyimage.com/800x600.png/99118E/ffffff",
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Instinct",
       "image": "http://dummyimage.com/800x600.png/302140/ffffff",
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Grand Hotel",
       "image": "http://dummyimage.com/800x600.png/5472FF/ffffff",
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Stargate Atlantis",
       "image": "http://dummyimage.com/800x600.png/B36F20/ffffff",
     }
@@ -33,11 +33,7 @@ export default function App() {
     <>
       <SafeAreaView style={{ flex: 1 }}>
         <View>
-          <Carrousel>
-            {
-              lista.map(item => <CarrouselItem key={item.id} {...item} />)
-            }
-          </Carrousel>
+          <Carrousel lista={lista}/>
         </View>
       </SafeAreaView>
     </>
