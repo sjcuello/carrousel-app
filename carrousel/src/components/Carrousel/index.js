@@ -1,9 +1,8 @@
 
 import React, { useCallback, useEffect, useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Wrapper, Conteiner } from './styles'
+import { Wrapper, Conteiner, ButtonContainer, Button, TextButton } from './styles'
 import CarrouselItem from '../CarrouselItem'
-import { Button } from 'react-native';
 
 const Carrousel = ({ lista }) => {
 
@@ -22,13 +21,11 @@ const Carrousel = ({ lista }) => {
     }, [])
 
     const extremePointsControl = (index) => {
-        console.log(`index extremePointsControl`, index)
-        setDisabledNext(Math.min(index + 2, lista.length - 1)  === lista.length - 1)
+        setDisabledNext(Math.min(index + 2, lista.length - 1) === lista.length - 1)
         setDisabledPrevious(index === 0)
     }
 
-    const handleVieweableItemsChanged = useCallback(({viewableItems}) => {
-        console.log(`viewableItems`, viewableItems)
+    const handleVieweableItemsChanged = useCallback(({ viewableItems }) => {
         setPositionDef(viewableItems[0].index);
         AsyncStorage.setItem('storedPosition', `${viewableItems[0].index}`)
         extremePointsControl(viewableItems[0].index)
@@ -37,7 +34,7 @@ const Carrousel = ({ lista }) => {
     const viewabilityConfig = { viewAreaCoveragePercentThreshold: 100 }
 
     const nextItem = () => {
-        let newPosition = Math.min(positionDef + 2,lista.length - 1)
+        let newPosition = Math.min(positionDef + 2, lista.length - 1)
         setPositionDef(newPosition)
         flatListRef.scrollToIndex({ animated: true, index: newPosition });
     }
@@ -63,19 +60,24 @@ const Carrousel = ({ lista }) => {
                     )
                 }}
             >
-
             </Conteiner>
-            <Button
-                title="Next"
-                disabled={disabledNext}
-                onPress={() => nextItem()}
-            />
+            <ButtonContainer >
+                <Button
+                    disabled={disabledPrevious}
+                    onPress={() => previousItem()}
+                    isDisabled={disabledPrevious}
+                >
+                    <TextButton isDisabled={disabledPrevious}>Previous</TextButton>
+                </Button>
 
-            <Button
-                title="Previous"
-                disabled={disabledPrevious}
-                onPress={() => previousItem()}
-            />
+                <Button
+                    disabled={disabledNext}
+                    onPress={() => nextItem()}
+                    isDisabled={disabledNext}
+                >
+                    <TextButton isDisabled={disabledNext} >Next</TextButton>
+                </Button>
+            </ButtonContainer>
         </Wrapper>
     )
 }

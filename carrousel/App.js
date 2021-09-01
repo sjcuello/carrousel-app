@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, SafeAreaView } from 'react-native';
+import { SafeAreaView } from 'react-native';
 
-import { Tittle } from './GlobalStyles'
+import { Layout } from './GlobalStyles'
 import Carrousel from './src/components/Carrousel';
-import CarrouselItem from './src/components/CarrouselItem';
 
 export default function App() {
   const lista = [
@@ -60,12 +59,11 @@ export default function App() {
   ];
 
   return (
-    <>
+    
       <SafeAreaView style={{ flex: 1 }}>
-        <View>
+        <Layout>
           <Carrousel lista={lista}/>
-        </View>
+        </Layout>
       </SafeAreaView>
-    </>
   );
 }

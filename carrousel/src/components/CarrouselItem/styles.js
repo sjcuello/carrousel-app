@@ -9,7 +9,8 @@ export const Card = styled(View)({
     borderRadius: 5,
     width: 130,
     height: 195,
-    marginRight: 10
+    marginRight: 10,
+    boxShadow: '10px 5px 5px black'
 });
 
 export const ImageItem = styled(Image)({
@@ -22,7 +23,7 @@ export const ImageItem = styled(Image)({
 export const CardDetail = styled(View)({
     width: '100%',
     height: '10%',
-    background: 'grey',
+    background: '#DCCD9C',
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
     display: 'flex',
@@ -32,7 +33,7 @@ export const CardDetail = styled(View)({
 
 export const Title = styled(Text)({
     fontSize: 15,
-    color: 'black',
+    color: '#7E6F3D',
     fontWeight: 'bold',
     textAlign: 'center'
 });
