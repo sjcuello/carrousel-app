@@ -1,37 +1,49 @@
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Wrapper, Conteiner } from './styles'
-import { Title } from '../../../GlobalStyles'
 import CarrouselItem from '../CarrouselItem'
 
 const Carrousel = ({ lista }) => {
-    const onViewableItemsChanged = ({ viewableItems, changed } = {}) => {
-        console.log("Visible items are", viewableItems);
-        console.log("Changed in this iteration", changed);
+
+    const [positionDef, setPositionDef] = useState(0)
+
+    useEffect(() => {
+        async function gettingData() {
+            const position = await AsyncStorage.getItem('storedPosition')
+            setPositionDef(position);
+            console.log(`=====================POSITION======================>`, position)
+        }
+        gettingData()
+        
+    }, [])
+
+    const changeStoredPosition = async (position) => {
+        console.log('entra changeStoredPosition')
+        await AsyncStorage.setItem('storedPosition', `${position}`)
     }
 
-    return (
+    const handleVieweableItemsChanged = useCallback(({ changed }) => {
+        console.log("changed[0].index", changed[0].index);
+        setPositionDef(changed[0].index);
+        changeStoredPosition(changed[0].index)
+    },[]);
 
+    const viewabilityConfig = { viewAreaCoveragePercentThreshold: 70 }
+
+    return (
         <Wrapper>
-            {
-                console.log('monto:', lista)
-            }
             <Conteiner
                 horizontal
-                onViewableItemsChanged={onViewableItemsChanged}
-                viewabilityConfig={{
-                    itemVisiblePercentThreshold: 70
-                }}
+                onViewableItemsChanged={handleVieweableItemsChanged}
+                viewabilityConfig={viewabilityConfig}
                 data={lista}
-                initialScrollIndex={1}
-                renderItem={({item, index}) => {
-                    console.log('FlatList item', item);
-                    console.log('FlatList index', index);
-          
+                initialScrollIndex={positionDef}
+                renderItem={({item}) => {
                     return (
-                      <CarrouselItem key={item.id} item={item}/>
+                        <CarrouselItem key={item.id} item={item} />
                     )
-                  }}
+                }}
             >
             </Conteiner>
         </Wrapper>
