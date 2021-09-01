@@ -5,7 +5,6 @@ import { Card, ImageItem, CardDetail, Title } from './styles'
 const CarrouselItem = ({ item }) => {
 
     const {title, image} = item
-    console.log('entra item')
 
     return (
         <Card>

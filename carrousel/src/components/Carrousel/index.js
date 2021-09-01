@@ -12,21 +12,15 @@ const Carrousel = ({ lista }) => {
         async function gettingData() {
             const position = await AsyncStorage.getItem('storedPosition')
             setPositionDef(position);
-            console.log(`=====================POSITION======================>`, position)
         }
         gettingData()
         
     }, [])
 
-    const changeStoredPosition = async (position) => {
-        console.log('entra changeStoredPosition')
-        await AsyncStorage.setItem('storedPosition', `${position}`)
-    }
-
     const handleVieweableItemsChanged = useCallback(({ changed }) => {
         console.log("changed[0].index", changed[0].index);
         setPositionDef(changed[0].index);
-        changeStoredPosition(changed[0].index)
+        AsyncStorage.setItem('storedPosition', `${changed[0].index}`)
     },[]);
 
     const viewabilityConfig = { viewAreaCoveragePercentThreshold: 70 }
