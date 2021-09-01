@@ -1,10 +1,11 @@
-import React from 'react';
-import { SafeAreaView } from 'react-native';
+import React, { useEffect } from 'react';
+import { SafeAreaView, StatusBar } from 'react-native';
 
 import { Layout } from './GlobalStyles'
 import Carrousel from './src/components/Carrousel';
 
 export default function App() {
+
   const lista = [
     {
       "id": "2",
@@ -56,14 +57,19 @@ export default function App() {
       "title": "Title 10",
       "image": "https://dummyimage.com/600x800/6b6ed6/2e2e2e.png&text=Imagen+10",
     },
-  ];
+  ]
+
+  useEffect(() => {
+    StatusBar.setTranslucent(true)
+  }, [])
 
   return (
-    
+    <>
       <SafeAreaView style={{ flex: 1 }}>
         <Layout>
-          <Carrousel lista={lista}/>
+          <Carrousel lista={lista} />
         </Layout>
       </SafeAreaView>
-  );
+    </>
+  )
 }
