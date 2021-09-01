@@ -9,59 +9,54 @@ export default function App() {
   const lista = [
     {
       "id": "2",
-      "title": "In the Dark",
-      "image": "http://dummyimage.com/800x600.png/99118E/ffffff",
+      "title": "Title 1",
+      "image": "https://dummyimage.com/600x800/65d1f5/2e2e2e.png&text=Imagen+1",
     },
     {
       "id": "3",
-      "title": "Instinct",
-      "image": "http://dummyimage.com/800x600.png/302140/ffffff",
+      "title": "Title 2",
+      "image": "https://dummyimage.com/600x800/4ca6c4/2e2e2e.png&text=Imagen+2",
     },
     {
       "id": "4",
-      "title": "Grand Hotel",
-      "image": "http://dummyimage.com/800x600.png/5472FF/ffffff",
+      "title": "Title 3",
+      "image": "https://dummyimage.com/600x800/357a91/2e2e2e.png&text=Imagen+3",
     },
     {
       "id": "5",
-      "title": "Stargate Atlantis",
-      "image": "http://dummyimage.com/800x600.png/B36F20/ffffff",
+      "title": "Title 4",
+      "image": "https://dummyimage.com/600x800/de5b5b/2e2e2e.png&text=Imagen+4",
     },
     {
       "id": "6",
-      "title": "In the Dark",
-      "image": "http://dummyimage.com/800x600.png/99118E/ffffff",
+      "title": "Title 5",
+      "image": "https://dummyimage.com/600x800/b34b4b/2e2e2e.png&text=Imagen+5",
     },
     {
       "id": "7",
-      "title": "Instinct",
-      "image": "http://dummyimage.com/800x600.png/302140/ffffff",
+      "title": "Title 6",
+      "image": "https://dummyimage.com/600x800/8f3c3c/2e2e2e.png&text=Imagen+6",
     },
     {
       "id": "8",
-      "title": "Grand Hotel",
-      "image": "http://dummyimage.com/800x600.png/5472FF/ffffff",
+      "title": "Title 7",
+      "image": "https://dummyimage.com/600x800/82db6b/2e2e2e.png&text=Imagen+7",
     },
     {
       "id": "9",
-      "title": "Stargate Atlantis",
-      "image": "http://dummyimage.com/800x600.png/B36F20/ffffff",
+      "title": "Title 8",
+      "image": "https://dummyimage.com/600x800/61a14f/2e2e2e.png&text=Imagen+8",
     },
     {
       "id": "10",
-      "title": "Stargate Atlantis2",
-      "image": "http://dummyimage.com/800x600.png/B36F20/ffffff",
+      "title": "Title 9",
+      "image": "https://dummyimage.com/600x800/4b7a3d/2e2e2e.png&text=Imagen+9",
     },
     {
       "id": "11",
-      "title": "Stargate Atlantis3",
-      "image": "http://dummyimage.com/800x600.png/B36F20/ffffff",
+      "title": "Title 10",
+      "image": "https://dummyimage.com/600x800/6b6ed6/2e2e2e.png&text=Imagen+10",
     },
-    {
-      "id": "12",
-      "title": "Stargate Atlantis4",
-      "image": "http://dummyimage.com/800x600.png/B36F20/ffffff",
-    }
   ];
 
   return (

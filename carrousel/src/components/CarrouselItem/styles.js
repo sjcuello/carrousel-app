@@ -6,29 +6,33 @@ import styled from 'styled-components';
 
 
 export const Card = styled(View)({
-    borderRadius: 20,
-    width: 120,
-    height: 250,
-    marginRight: 10,
-    fontSize: 20,
+    borderRadius: 5,
+    width: 130,
+    height: 195,
+    marginRight: 10
 });
 
 export const ImageItem = styled(Image)({
-    width: 120,
-    height: 250,
+    flex: 1,
+    height: '100%',
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10
 });
 
 export const CardDetail = styled(View)({
-    alignItems: 'flex-start',
-    background: 'red',
-    bottom: 0,
+    width: '100%',
+    height: '10%',
+    background: 'grey',
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
     display: 'flex',
-    fontSize: 10,
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
+    justifyContent: 'center'
 });
 
 
 export const Title = styled(Text)({
-    color: 'black'
+    fontSize: 15,
+    color: 'black',
+    fontWeight: 'bold',
+    textAlign: 'center'
 });

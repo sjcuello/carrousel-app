@@ -10,7 +10,7 @@ const CarrouselItem = ({ item }) => {
     return (
         <Card>
             <CardDetail>
-                <Title>{title} id:{id}</Title>
+                <Title>{title}</Title>
             </CardDetail>
             <ImageItem source={{ uri: image }} />
         </Card>

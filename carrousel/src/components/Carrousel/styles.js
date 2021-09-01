@@ -11,7 +11,7 @@ export const Wrapper = styled(View)({
 
 export const Conteiner = styled(FlatList)({
     fontSize: 0,
-    margin: '50% 5% 10% 5%',
+    margin: '50% 3% 10% 3%',
     paddingBottom: 10,
     overflow: 'hidden'
 });
